@@ -1,0 +1,52 @@
+<a
+  (click) = "focusOnClick()"
+  style="cursor: pointer;"
+  class="list-group-item clearfix">
+  <div class="pull-left"
+  >
+
+    <div class="col-md-9">
+      <div class="card mb-9 shadow-sm">
+        <div class="card-header">{{ lecture.name }}</div>
+        <div class="card-body">
+          <p class="card-text">Students:///</p>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary"
+              [routerLink]="['/lectures', lecture.id]">Edit</button>
+              <small class="text-muted">9 mins</small>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-success">Add student
+            <!--<form>-->
+              <!--<select [(ngModel)]="newStudent" name="state" (change)="addStudent(newStudent)">-->
+                <!--<option value="" disabled>Choose new student</option>-->
+                <!--&lt;!&ndash;<option *ngFor="let st of studentsService.students | studentsFilter:lecture.id" [ngValue]="st">&ndash;&gt;-->
+                  <!--{{ st.name }}-->
+                <!--</option>-->
+              <!--</select>-->
+            <!--</form>-->
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!--<p class="list-group-item-text">students in lecture:</p>-->
+    <!--<p class="list-group-item-text" *ngFor="let st of lecture.students">-->
+    <!--{{ st.name }}-->
+    <!--</p>-->
+
+
+  </div>
+  <span class="pull-right">
+        <!--<img-->
+    <!--[src]="recipe.imagePath"-->
+    <!--alt="{{ student.name }}"-->
+    <!--class="img-responsive"-->
+    <!--style="max-height: 50px;">-->
+      </span>
+</a>
+

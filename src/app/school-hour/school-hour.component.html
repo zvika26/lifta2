@@ -1,0 +1,11 @@
+<h1>
+  day = {{specificDay}}
+  hour = {{hour}}
+</h1>
+<div class="row">
+  <app-lecture-item
+    *ngFor="let lectureEl of lectures"
+    [lecture]="lectureEl"
+  >
+  </app-lecture-item>
+</div>

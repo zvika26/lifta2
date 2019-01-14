@@ -1,0 +1,27 @@
+<p>
+  teacher-create works!
+</p>
+
+  <form (submit)="onSaveTeacher(teacherForm)" #teacherForm="ngForm">
+      <input
+        matInput
+        type="text"
+        name="name"
+        [ngModel]="existTeacher.name"
+        required
+        minlength="3"
+        placeholder="Teacher Name"
+        #name="ngModel">
+      <textarea
+        matInput
+        rows="4"
+        name="profession"
+        [ngModel]="existTeacher.profession"
+        required
+        placeholder="Teacher Profession"
+        #profession="ngModel"></textarea>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Save Teacher</button>
+  </form>

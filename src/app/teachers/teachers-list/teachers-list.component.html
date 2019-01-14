@@ -1,0 +1,15 @@
+<a routerLink="/teachers/new">NEW</a>
+<br>
+<br>
+
+<div *ngIf="teachers.length > 0">
+  <div *ngFor="let teacher of teachers">
+    <p>{{ teacher._id }}</p>
+    <p>{{ teacher.name }}<p>
+    <p>{{ teacher.profession }}</p>
+    <button>
+    <a [routerLink]="['/teachers/edit', teacher._id]">EDIT</a>
+    </button>
+    <button (click)="onDelete(teacher._id)">DELETE</button>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container">
+  <header>
+    <h3>
+      <span class="glyphicon glyphicon-user"></span>
+      Lectures
+    </h3>
+  </header>
+  <br />
+  <div class="row">
+    <div class="col-md-10">
+      <div class="navbar">
+        <ul class="nav navbar-nav">
+          <li class="toolbar-item">
+            <a routerLink="/new_lecture">
+              <span class="glyphicon glyphicon-plus"></span> New lecture
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!--<cm-customers-card-->
+    <!--[customers]="filteredCustomers"-->
+    <!--[hidden]="displayMode !== displayModeEnum.Card"></cm-customers-card>-->
+
+  <!--<cm-customers-grid-->
+    <!--[customers]="filteredCustomers"-->
+    <!--[hidden]="displayMode !== displayModeEnum.Grid"></cm-customers-grid>-->
+
+</div>
+
+
+<hr>
+<div class="row">
+  <!--<div class="col-xs-12">-->
+  <!--<h2>Lectures List on the first hour</h2>-->
+  <app-lecture-item
+    *ngFor="let lectureEl of lectures"
+    [lecture]="lectureEl"
+  >
+  </app-lecture-item>
+  <!--</div>-->
+</div>
+
