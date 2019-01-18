@@ -21,7 +21,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TeachersService} from "./services/teachers.service";
 import { TeacherCreateComponent } from './teachers/teacher-create/teacher-create.component';
 import {FormsModule} from "@angular/forms";
-
+import { StudentCreateComponent } from './students/student-create/student-create.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import {FormsModule} from "@angular/forms";
     EditItemComponent,
     DayTableComponent,
     SchoolHourComponent,
-    TeacherCreateComponent
+    TeacherCreateComponent,
+    StudentCreateComponent
   ],
   imports: [
     BrowserModule,

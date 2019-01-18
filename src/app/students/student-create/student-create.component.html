@@ -1,0 +1,23 @@
+<form (submit)="onSaveStudent(studentForm)" #studentForm="ngForm">
+  <input
+    matInput
+    type="text"
+    name="name"
+    [ngModel]="existStudent?.name"
+    required
+    minlength="3"
+    placeholder="Student Name"
+    #name="ngModel">
+  <!--<textarea-->
+    <!--matInput-->
+    <!--rows="4"-->
+    <!--name="profession"-->
+    <!--[ngModel]="existTeacher?.profession"-->
+    <!--required-->
+    <!--placeholder="Teacher Profession"-->
+    <!--#profession="ngModel"></textarea>-->
+  <button
+    mat-raised-button
+    color="accent"
+    type="submit">Save Student</button>
+</form>

@@ -9,13 +9,16 @@ import {NewLectureComponent} from "./lectures/new-lecture/new-lecture.component"
 import {EditItemComponent} from "./lectures/edit-item/edit-item.component";
 import {DayTableComponent} from "./days/day-table/day-table.component";
 import {TeacherCreateComponent} from "./teachers/teacher-create/teacher-create.component";
+import {StudentCreateComponent} from "./students/student-create/student-create.component";
 
 const routes: Routes = [
   // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'students', component: StudentListComponent},
   { path: 'teachers', component: TeachersListComponent},
   { path: 'teachers/new', component: TeacherCreateComponent},
   { path: "teachers/edit/:teacherId", component: TeacherCreateComponent},
+  { path: 'students', component: StudentListComponent},
+  { path: 'students/new', component: StudentCreateComponent},
+  { path: "students/edit/:studentId", component: StudentCreateComponent},
   { path: 'lectures', component: LectureListComponent},
   { path: 'lectures/:id', component: EditItemComponent},
   { path: 'new_lecture', component: NewLectureComponent},

@@ -1,4 +1,14 @@
-<p>
-  student-list works! aass
-</p>
+<a routerLink="/students/new">NEW</a>
+<br>
+<br>
 
+<div *ngIf="students.length > 0">
+  <div *ngFor="let student of students">
+    <p>{{ student._id }}</p>
+    <p>{{ student.name }}<p>
+    <button>
+      <a [routerLink]="['/students/edit', student._id]">EDIT</a>
+    </button>
+    <button (click)="onDelete(student._id)">DELETE</button>
+  </div>
+</div>

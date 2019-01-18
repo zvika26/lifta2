@@ -7,10 +7,12 @@ import {Router} from "@angular/router";
 
 @Injectable()
 export class TeachersService {
-  constructor(private http: HttpClient, private router: Router) { }
+
   private teachers: Teacher[] = [] ;
   private updatedTeachers = new Subject<Teacher[]>();
   private port: string = "3001";
+
+  constructor(private http: HttpClient, private router: Router) { }
 
   getTeachers(){
     this.http.get<{message: string, teachers: Teacher[]}>("http://localhost:3001/api/teachers")
@@ -40,7 +42,6 @@ export class TeachersService {
         // this.teachersUpdated.next([..this.teachers]);
         this.router.navigate(["/teachers"]);
       });
-
   }
 
   deleteTeacher(teacherId: string){
