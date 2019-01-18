@@ -7,7 +7,7 @@
         matInput
         type="text"
         name="name"
-        [ngModel]="existTeacher.name"
+        [ngModel]="existTeacher?.name"
         required
         minlength="3"
         placeholder="Teacher Name"
@@ -16,7 +16,7 @@
         matInput
         rows="4"
         name="profession"
-        [ngModel]="existTeacher.profession"
+        [ngModel]="existTeacher?.profession"
         required
         placeholder="Teacher Profession"
         #profession="ngModel"></textarea>

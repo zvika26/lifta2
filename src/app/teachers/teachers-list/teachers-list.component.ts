@@ -10,17 +10,25 @@ import {Teacher} from "../teacher.model";
 })
 export class TeachersListComponent implements OnInit {
   private teachSub: Subscription;
-  private teachers: Teacher[];
+  private teachers: Teacher[] = [];
   constructor(private teachersService : TeachersService) { }
 
   ngOnInit() {
+    console.log('TeachersListComponent init')
     this.teachersService.getTeachers();
-    this.teachers = this.teachersService.getTeachersFromService();
-    // this.teachersService.addTeacher("zvi", "king");
+    this.teachSub = this.teachersService.getUpdatedTeachersListener()
+      .subscribe((teachers: Teacher[]) =>{
+        this.teachers = teachers;
+    });
+    console.log('1: ' + this.teachers);
   }
 
   onDelete(teacherId: string) {
     this.teachersService.deleteTeacher(teacherId);
+  }
+
+  ngOnDestroy() {
+    this.teachSub.unsubscribe();
   }
 
 }
