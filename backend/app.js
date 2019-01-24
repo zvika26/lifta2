@@ -3,6 +3,7 @@ const bodyParser = require ('body-parser');
 const mongoose = require('mongoose');
 const teachersRoutes = require("./routes/teachers");
 const studentsRoutes = require("./routes/students");
+const lecturesRoutes = require("./routes/lectures");
 
 const app = express();
 
@@ -33,5 +34,6 @@ app.use((req, res, next) => {
 
 app.use("/api/teachers", teachersRoutes);
 app.use("/api/students", studentsRoutes);
+app.use("/api/lectures", lecturesRoutes);
 
 module.exports = app;

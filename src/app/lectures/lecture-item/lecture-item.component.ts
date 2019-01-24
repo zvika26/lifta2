@@ -12,9 +12,11 @@ export class LectureItemComponent implements OnInit {
   @Input() lecture: Lecture;
   newStudent: Student;
 
-  constructor(public studentsService: StudentsService) { }
+  constructor(public studentsService: StudentsService) {
+  }
 
   ngOnInit() {
+    console.log('LectureItemComponent ngOnInit');
   }
 
   focusOnClick() {

@@ -2,16 +2,16 @@ import {Student} from '../students/student.model';
 
 export class Lecture {
   public name: string;
-  public id: number;
-  public day: string;
+  public _id: string;
+  public day: number;
   public hour: number;
+  public students: Student[] = [];
+  // public students: Student[] = [new Student("", 'demo')];
 
-  public students: Student[] = [new Student('demo'), new Student('demo2')];
 
-
-  constructor(name: string, id: number, day: string, hour: number) {
+  constructor(name: string, id: string, day: number, hour: number) {
     this.name = name;
-    this.id = id;
+    this._id = id;
     this.day = day;
     this.hour = hour;
   }

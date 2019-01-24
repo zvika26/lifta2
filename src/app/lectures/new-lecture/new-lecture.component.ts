@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class NewLectureComponent implements OnInit {
 
-  lecture: Lecture = new Lecture('', 0, '', 0);
+  lecture: Lecture = new Lecture('', "", 1, 0);
   @ViewChild('customerForm') customerForm: NgForm;
   constructor(private lecturesService: LecturesService,
               private router: Router) { }
@@ -20,7 +20,7 @@ export class NewLectureComponent implements OnInit {
   }
 
   addNewLecture(){
-    this.lecturesService.addLecture(this.lecture);
+    this.lecturesService.addLecture("test", 5,123);
     this.router.navigate(['lectures']);
 
   }

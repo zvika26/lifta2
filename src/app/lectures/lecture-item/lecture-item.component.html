@@ -1,3 +1,4 @@
+
 <a
   (click) = "focusOnClick()"
   style="cursor: pointer;"
@@ -15,7 +16,8 @@
               <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
               <button type="button" class="btn btn-sm btn-outline-secondary"
               [routerLink]="['/lectures', lecture.id]">Edit</button>
-              <small class="text-muted">9 mins</small>
+              <small class="text-muted">day: {{ lecture.day }}</small>
+              <small class="text-muted">hour: {{ lecture.hour }}</small>
             </div>
           </div>
         </div>

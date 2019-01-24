@@ -20,7 +20,7 @@ router.post("",(req, res, next) =>{
     console.log(createdStudent);
     res.status(201).json({
       message: 'post student succeed',
-      teacherId: createdStudent._id
+      studentId: createdStudent._id
     });
   });
 
