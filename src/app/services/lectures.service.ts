@@ -10,25 +10,10 @@ import {Student} from "../students/student.model";
 @Injectable()
 export class LecturesService {
 
-  // private lectures: Lecture[] = [] ;
   private updatedLectures = new Subject<Lecture[]>();
-
-  // lectures: Lecture[] = [
-  //   new Lecture ('Art', "2", 1, 1),
-  //   new Lecture ('Bible', "10", 2, 1),
-  //   new Lecture('math', "11", 3, 3),
-  //   new Lecture('english', "12", 5, 2),
-  //   new Lecture('hebrew', "11", 6, 1),
-  //   new Lecture('chemistry', "1111", 3, 3)
-  // ]
-
   lectures: Lecture[] = [];
 
-    constructor(private http: HttpClient, private router: Router) { }
-
-  // getLectures() : any{
-  //   return this.lectures;
-  // }
+  constructor(private http: HttpClient, private router: Router) { }
 
   getLectures(){
     this.http.get<{message: string, lectures: Lecture[]}>("http://localhost:3001/api/lectures")
@@ -55,7 +40,6 @@ export class LecturesService {
 
   addLecture(name: string, day: number, hour: number) {
     const newLecture: Lecture = new Lecture(name,"",  day, hour);
-
     this.http.post<{message: string, lectureId: string}>("http://localhost:3001/api/lectures", newLecture)
       .subscribe((resData) =>{
         const id = resData.lectureId;
@@ -68,8 +52,14 @@ export class LecturesService {
       });
   }
 
-  removeLecture(newLecture: Lecture) {
-//todo
+  deleteLecture(lectureId: string){
+    this.http.delete<{message: string}>("http://localhost:3001/api/lectures/" + lectureId)
+      .subscribe((resData) => {
+        console.log(resData.message);
+        const lecturesWithoutDeleted = this.lectures.filter(lecture => lecture._id !== lectureId);
+        this.lectures = lecturesWithoutDeleted;
+        this.updatedLectures.next([...this.lectures]);
+      });
   }
 
   editLecture(){

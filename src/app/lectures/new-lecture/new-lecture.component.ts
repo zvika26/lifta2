@@ -21,8 +21,6 @@ export class NewLectureComponent implements OnInit {
 
   addNewLecture(){
     this.lecturesService.addLecture("test", 5,123);
-    this.router.navigate(['lectures']);
-
   }
 
 

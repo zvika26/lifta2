@@ -27,4 +27,6 @@ export class LectureListComponent implements OnInit {
     console.log('lectures after init: ' + this.lectures + this.lectures.values());
   }
 
+
+
 }
