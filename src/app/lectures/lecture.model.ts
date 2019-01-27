@@ -9,7 +9,7 @@ export class Lecture {
   // public students: Student[] = [new Student("", 'demo')];
 
 
-  constructor(name: string, id: string, day: number, hour: number) {
+  constructor(id: string, name: string, day: number, hour: number) {
     this.name = name;
     this._id = id;
     this.day = day;

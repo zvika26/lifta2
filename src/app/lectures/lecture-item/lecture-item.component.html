@@ -17,7 +17,7 @@
               <button type="button" class="btn btn-sm btn-outline-secondary"
                       (click)="onDelete(lecture._id)">Delete</button>
               <button type="button" class="btn btn-sm btn-outline-secondary"
-              [routerLink]="['/lectures', lecture.id]">Edit</button>
+              [routerLink]="['/lectures/edit', lecture._id]">Edit</button>
               <small class="text-muted">day: {{ lecture.day }}</small>
               <small class="text-muted">hour: {{ lecture.hour }}</small>
             </div>

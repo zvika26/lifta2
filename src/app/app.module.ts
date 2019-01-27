@@ -17,11 +17,11 @@ import {EditItemComponent} from './lectures/edit-item/edit-item.component';
 import {DayTableComponent} from './days/day-table/day-table.component';
 import {SchoolHourComponent} from './school-hour/school-hour.component';
 import {ServerService} from "./services/server.service";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {HttpClientModule} from "@angular/common/http";
 import {TeachersService} from "./services/teachers.service";
-import { TeacherCreateComponent } from './teachers/teacher-create/teacher-create.component';
+import {TeacherCreateComponent} from './teachers/teacher-create/teacher-create.component';
 import {FormsModule} from "@angular/forms";
-import { StudentCreateComponent } from './students/student-create/student-create.component';
+import {StudentCreateComponent} from './students/student-create/student-create.component';
 
 @NgModule({
   declarations: [

@@ -19,9 +19,11 @@ const routes: Routes = [
   { path: 'students', component: StudentListComponent},
   { path: 'students/new', component: StudentCreateComponent},
   { path: "students/edit/:studentId", component: StudentCreateComponent},
+
   { path: 'lectures', component: LectureListComponent},
-  { path: 'lectures/:id', component: EditItemComponent},
-  { path: 'new_lecture', component: NewLectureComponent},
+  { path: 'lectures/new', component: NewLectureComponent},
+  { path: 'lectures/edit/:lectureId', component: NewLectureComponent},
+
   { path: 'days/:day', component: DayTableComponent}
 
   // { path: 'cart/:id', component: ShoppingCartComponent, canActivate: [AuthGuard] },

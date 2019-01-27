@@ -1,11 +1,33 @@
-<div>
-  <form novalidate>
-    <div class="form-group">
-      <label>Lecture Name</label>
-      <label>TODO</label>
-      <input type="text" class="form-control" name="lectureName" required>
-    </div>
-  </form>
-  <br />
-  <button class="btn btn-primary" (click)="addNewLecture()"> </button>
-</div>
+<form novalidate (submit)="onSaveLecture(lectureForm)" #lectureForm="ngForm">
+  <input
+    matInput
+    type="text"
+    name="name"
+    [ngModel]="existLecture?.name"
+    required
+    minlength="3"
+    placeholder="Lecture Name"
+    #name="ngModel">
+  <input
+    matInput
+    type="number" min="1" max="6"
+    rows="4"
+    name="day"
+    [ngModel]="existLecture?.day"
+    required
+    placeholder="day"
+    #day="ngModel">
+  <input
+    matInput
+    type="number" min="1" max="5"
+    rows="4"
+    name="hour"
+    [ngModel]="existLecture?.hour"
+    required
+    placeholder="hour"
+    #hour="ngModel">
+  <button
+    mat-raised-button
+    color="accent"
+    type="submit">Save Lecture</button>
+</form>

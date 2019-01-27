@@ -34,12 +34,12 @@ export class LecturesService {
         lecture.day === day && lecture.hour === hour);
   }
 
-  getLecture(id : number) : any{
-
+  getLecture(lectureId : string) : any{
+    return {...this.lectures.find(l=> l._id===lectureId)};
   }
 
   addLecture(name: string, day: number, hour: number) {
-    const newLecture: Lecture = new Lecture(name,"",  day, hour);
+    const newLecture: Lecture = new Lecture("", name,  day, hour);
     this.http.post<{message: string, lectureId: string}>("http://localhost:3001/api/lectures", newLecture)
       .subscribe((resData) =>{
         const id = resData.lectureId;
@@ -62,7 +62,12 @@ export class LecturesService {
       });
   }
 
-  editLecture(){
-
+  updateLecture(lectureId: string, name: string, day: number, hour: number){
+    const lecture = new Lecture(lectureId, name, day, hour);
+    this.http.put<{message: string}>("http://localhost:3001/api/lectures/" + lectureId, lecture)
+      .subscribe((resData)=>{
+        console.log(resData);
+        this.router.navigate(["/lectures"]);
+      });
   }
 }

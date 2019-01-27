@@ -1,8 +1,8 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Lecture} from "../lecture.model";
 import {LecturesService} from "../../services/lectures.service";
 import {NgForm} from "@angular/forms";
-import {Router} from "@angular/router";
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {Lecture} from "../lecture.model";
 
 @Component({
   selector: 'app-new-lecture',
@@ -11,18 +11,38 @@ import {Router} from "@angular/router";
 })
 export class NewLectureComponent implements OnInit {
 
-  lecture: Lecture = new Lecture('', "", 1, 0);
+  private mode = "create";
+  private lectureId: string;
+  private existLecture: Lecture;
+
   @ViewChild('customerForm') customerForm: NgForm;
   constructor(private lecturesService: LecturesService,
-              private router: Router) { }
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe((paramMap: ParamMap)=>{
+      if (paramMap.has("lectureId")) {
+        this.mode = "edit";
+        this.lectureId = paramMap.get("lectureId");
+        this.existLecture = this.lecturesService.getLecture(this.lectureId);
+      }else{
+        this.mode = "create";
+        this.lectureId = null;
+      }
+
+    })
   }
 
-  addNewLecture(){
-    this.lecturesService.addLecture("test", 5,123);
+  onSaveLecture(form: NgForm) {
+    // if (form.invalid) {
+    //   return;
+    // }
+    if (this.mode === "create"){
+      this.lecturesService.addLecture(form.value.name, form.value.day, form.value.hour);
+    }else{
+      this.lecturesService.updateLecture(this.lectureId, form.value.name, form.value.day, form.value.hour);
+    }
+    form.resetForm();
   }
-
-
-
 }
