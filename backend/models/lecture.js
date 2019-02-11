@@ -6,7 +6,7 @@ const lectureSchema = mongoose.Schema({
   name : {type : String, required : true},
   day : {type : Number, required : true},
   hour : {type : Number, required : true},
-  students: [{ type: Schema.Types.ObjectId, ref: Student}]
+  students: { type: Schema.Types.ObjectId, ref: Student}
 });
 
 module.exports = mongoose.model('Lecture', lectureSchema);

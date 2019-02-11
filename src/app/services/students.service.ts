@@ -28,6 +28,9 @@ export class StudentsService {
       });
   }
 
+  getStudentsList(){
+    return this.students;
+  }
   getUpdatedStudentsListener(){
     return this.updatedStudents.asObservable()
   }

@@ -43,9 +43,11 @@ router.put("/:id", (req, res, next) => {
     hour: req.body.hour,
     students: req.body.students
   });
+  console.log(lecture.students);
+
   Lecture.updateOne({_id: req.params.id}, lecture).then(result => {
     res.status(200).json({ message: "Lecture **updated!" });
-    // console.log(message);
+    console.log(req.body.students);
   });
 });
 

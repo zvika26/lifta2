@@ -62,8 +62,9 @@ export class LecturesService {
       });
   }
 
-  updateLecture(lectureId: string, name: string, day: number, hour: number){
+  updateLecture(lectureId: string, name: string, day: number, hour: number, students: Student[]){
     const lecture = new Lecture(lectureId, name, day, hour);
+    lecture.setStudents(students);//todo
     this.http.put<{message: string}>("http://localhost:3001/api/lectures/" + lectureId, lecture)
       .subscribe((resData)=>{
         console.log(resData);

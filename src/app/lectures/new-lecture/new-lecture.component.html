@@ -16,7 +16,7 @@
     [ngModel]="existLecture?.day"
     required
     placeholder="day"
-    #day="ngModel">
+    #days="ngModel">
   <input
     matInput
     type="number" min="1" max="5"
@@ -26,8 +26,44 @@
     required
     placeholder="hour"
     #hour="ngModel">
+
+  <select name="student" ngModel>
+    <option value="" disabled>Choose a student</option>
+    <option *ngFor="let student of students" [ngValue]="student">
+      {{ student.name }}
+    </option>
+  </select>
+
+  <!--<input-->
+    <!--matInput-->
+    <!--name="students"-->
+    <!--list="students"-->
+    <!--placeholder="students"-->
+    <!--[ngModel]="existLecture?.students"-->
+    <!--#students="ngModel">-->
+  <!--&gt;-->
+  <!--<datalist id="students">-->
+    <!--<option *ngFor="let student of students"-->
+            <!--value={{student.name}}>-->
+  <!--</datalist>-->
   <button
     mat-raised-button
     color="accent"
     type="submit">Save Lecture</button>
 </form>
+
+
+<!--<form (submit)="onSave(f)" #f="ngForm">-->
+  <!--<select name="state" ngModel>-->
+    <!--<option value="" disabled>Choose a state</option>-->
+    <!--<option *ngFor="let state of states" [ngValue]="state">-->
+      <!--{{ state.abbrev }}-->
+    <!--</option>-->
+  <!--</select>-->
+  <!--<button-->
+  <!--mat-raised-button-->
+  <!--color="accent"-->
+  <!--type="submit">Save</button>-->
+<!--</form>-->
+
+<!--<p>Form value: {{ f.value | json }}</p>-->

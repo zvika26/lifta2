@@ -16,7 +16,7 @@ export class Lecture {
     this.hour = hour;
   }
 
-  addStudent(newStudent: Student) {
-    this.students.push(newStudent);
+  setStudents(students: Student[]){
+    this.students = students;
   }
 }
