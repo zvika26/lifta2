@@ -14,7 +14,6 @@ router.get("",(req, res, next) => {
 router.post("",(req, res, next) =>{
   const student = new Student({
     name: req.body.name, //using body-parser
-    //TODO
   });
   student.save().then(createdStudent => {
     console.log(createdStudent);
@@ -29,7 +28,8 @@ router.post("",(req, res, next) =>{
 router.put("/:id", (req, res, next) => {
   const student = new Student({
     _id: req.body._id,
-    name: req.body.name
+    name: req.body.name,
+    lectures: req.body.lectures
   });
   Student.updateOne({_id: req.params.id}, student).then(result => {
     // console.log(result);
