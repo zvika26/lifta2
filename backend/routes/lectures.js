@@ -11,6 +11,15 @@ router.get("",(req, res, next) => {
   })
 });
 
+router.get("/:id",(req, res, next) => {
+  Lecture.findById({_id: req.params.id }).then(doc =>{
+    res.status(200).json({
+      message: "specific lecture : " + doc,
+      lectures: doc
+    });
+  })
+});
+
 router.post("",(req, res, next) =>{
   const lecture = new Lecture({
     name: req.body.name, //using body-parser
@@ -43,7 +52,6 @@ router.put("/:id", (req, res, next) => {
     hour: req.body.hour,
     students: req.body.students
   });
-  console.log(lecture.students);
 
   Lecture.updateOne({_id: req.params.id}, lecture).then(result => {
     res.status(200).json({ message: "Lecture **updated!" });
